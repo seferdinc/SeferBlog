@@ -1,0 +1,52 @@
+﻿@model MyBlogSefer.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dd>
+            @Html.DisplayFor(model => model.title_post)
+        </dd>
+
+
+
+
+        <dd>
+            @Html.DisplayFor(model => model.content_post)
+        </dd>
+
+        @if (Model.Imgs.Any(f => f.Img_Type == MyBlogSefer.Models.ImgType.Avatar))
+        { 
+            <dt>
+                Avatar
+            </dt>
+
+            <dd>
+                <img src="~/Img?id=@Model.Imgs.First(f => f.Img_Type == MyBlogSefer.Models.ImgType.Avatar).id_Img" alt="avatar" height="200px" width="300px" />
+            </dd>
+        }
+
+
+
+        <dd>
+            @Html.DisplayFor(model => model.date_post)
+        </dd>
+
+
+
+        <dd>
+            @Html.DisplayFor(model => model.author)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
